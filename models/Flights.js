@@ -17,3 +17,7 @@ const flightsSchema = new Schema({
         type: Date
     }
 })
+
+const Flights = mongoose.model('flights', flightsSchema)
+
+module.exports = Flights

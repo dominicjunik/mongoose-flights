@@ -1,11 +1,29 @@
 const Flights = require('../models/Flights')
 
-module.exports.index = (req, res) => {
-
-    res.render('flights/Index', {})
+module.exports.index = async (req, res) => {
+    try {
+        let flights = await Flights.find()
+        console.log(flights)
+        res.render('flights/Index', {flights})
+    } catch(err) {
+        console.log(err.message)
+        res.redirect('/flights')
+    }   
 }
 
 module.exports.new = (req, res) => {
-    
-    res.render('flights/New', {})
+    res.render('flights/New')
+}
+
+module.exports.create = async (req, res) => {
+    console.log('Create new Function')
+    try {
+        console.log("test1", req.body)
+        let flight = await Flights.create(req.body)
+        console.log("test2",flight)
+    } catch (err) {
+        console.log(err.message)
+    }
+
+res.redirect('/flights')
 }

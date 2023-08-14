@@ -12,8 +12,13 @@ mongoConfig()
 const flightsRoutes = require('./routes/flightsRoutes')
 
 const jsxEngine = require('jsx-view-engine')
+
+const methodOverride = require('method-override')
+
 app.set('view engine', 'jsx')
 app.engine('jsx', jsxEngine())
+
+app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({ extended: true }))
 
