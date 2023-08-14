@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function New(){
+export default function New({newFlight}){
+
+    console.log('hello', newFlight)
     return (
         <div>
             <h1>New</h1>
@@ -14,7 +16,7 @@ export default function New(){
                 <input type='number' id='flightNo' name='flightNo'></input><br /><br />
 
                 <label htmlFor="departs">Departs:</label> <br />
-                <input type='datetime-local' id='departs' name='departs'></input><br /><br />
+                <input type='datetime-local' id='departs' name='departs' defaultValue={newFlight.departs.toISOString().slice(0, 16)}></input><br /><br />
 
                 <button>Submit</button>
             </form>

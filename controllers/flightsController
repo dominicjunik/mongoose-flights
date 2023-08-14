@@ -12,7 +12,8 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.new = (req, res) => {
-    res.render('flights/New')
+    const newFlight = new Flights();
+    res.render('flights/New', {newFlight})
 }
 
 module.exports.create = async (req, res) => {
