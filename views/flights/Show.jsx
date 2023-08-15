@@ -7,7 +7,15 @@ export default function Show({flight}) {
     console.log(destinations)
 
     let destinationArray = ['AUS', 'DAL', 'LAX', 'SAN', 'SEA']
-    // if (destinations.airport === index) {}
+    
+    for(let i = 0; i < destinationArray.length; i++){
+        for(let object of destinations) {            
+            if(object.airport === destinationArray[i]){
+                destinationArray.splice(i, 1)
+            }
+        }
+    }
+    
     return(
         <div>
             <h1>Flight Details</h1>
@@ -16,18 +24,6 @@ export default function Show({flight}) {
             <p>Flight #: {flightNo}</p>
             <p>Departs: {departs.toString()}</p>
             <h3>Destinations:</h3>
-            {/* <table>
-            <tr>
-                <td>Airport</td>
-                <td>Arrival</td>
-            </tr>
-            {destinations ? destinations.map((destination) => 
-                <tr key={destination._id}>
-                    <td>{destination.airport}</td>
-                    <td>{destination.arrival.toString()}</td>
-                </tr>
-            ): null}
-            </table> */}
             <table>
                 <tr>
                     <td>Airport</td>
@@ -54,11 +50,7 @@ export default function Show({flight}) {
 
             <label htmlFor="airports">Choose an Airport Destination:</label>
             <select name="airport" id="airports">
-                <option value="AUS">AUS</option>
-                <option value="DAL">DAL</option>
-                <option value="LAX">LAX</option>
-                <option value="SAN">SAN</option>
-                <option value="SEA">SEA</option>
+                {destinationArray.map((dest) => <option value={dest}>{dest}</option>)}
             </select> <br />
             <button>Submit</button>
             </form><br /><br /><br />
