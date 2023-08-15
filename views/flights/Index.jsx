@@ -13,7 +13,7 @@ export default function Index({flights}){
                     <th>Details</th>
                 </tr>
                  {flights.map((flight) => 
-                    <tr>
+                    <tr key={flight._id}>
                          {console.log(flight.departs)}
                         <td>{flight.airline}</td>
                         <td>{flight.flightNo}</td>

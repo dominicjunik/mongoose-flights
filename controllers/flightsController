@@ -40,8 +40,12 @@ module.exports.show = async (req, res) => {
 
 module.exports.update = async (req, res) => {
     console.log('PUT /flights/:id')
+    
     try {
-        await Flights.findByIdAndUpdate(req.params.id, req.body)
+        await Flights.update({"_id": req.params.id}, { $push: {destinations: req.body}})
+
+       
+        // await Flights.findByIdAndUpdate(req.params.id, req.body)
         res.redirect(`/flights/${req.params.id}`)
     } catch(err) {
         console.log(err.message)
