@@ -18,6 +18,15 @@ export default function New({newFlight}){
                 <label htmlFor="departs">Departs:</label> <br />
                 <input type='datetime-local' id='departs' name='departs' defaultValue={newFlight.departs.toISOString().slice(0, 16)}></input><br /><br />
 
+                <label htmlFor="airports">Choose an Airport:</label>
+                <select name="airports" id="airports">
+                    <option value="AUS">AUS</option>
+                    <option value="DAL">DAL</option>
+                    <option value="LAX">LAX</option>
+                    <option value="SAN">SAN</option>
+                    <option value="SEA">SEA</option>
+                </select>
+
                 <button>Submit</button>
             </form>
 
