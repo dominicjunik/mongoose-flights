@@ -6,7 +6,8 @@ export default function Show({flight}) {
     let {airport, airline, flightNo, departs, destinations, _id} = flight
     console.log(destinations)
 
-    
+    let destinationArray = ['AUS', 'DAL', 'LAX', 'SAN', 'SEA']
+    // if (destinations.airport === index) {}
     return(
         <div>
             <h1>Flight Details</h1>
@@ -15,7 +16,7 @@ export default function Show({flight}) {
             <p>Flight #: {flightNo}</p>
             <p>Departs: {departs.toString()}</p>
             <h3>Destinations:</h3>
-            <table>
+            {/* <table>
             <tr>
                 <td>Airport</td>
                 <td>Arrival</td>
@@ -26,7 +27,24 @@ export default function Show({flight}) {
                     <td>{destination.arrival.toString()}</td>
                 </tr>
             ): null}
+            </table> */}
+            <table>
+                <tr>
+                    <td>Airport</td>
+                    <td>Arrival</td>
+                </tr>
+                {destinations
+                ? destinations
+                    .sort((a, b) => a.arrival - b.arrival)
+                    .map(destination => (
+                        <tr key={destination._id}>
+                        <td>{destination.airport}</td>
+                        <td>{destination.arrival.toString()}</td>
+                        </tr>
+                    ))
+                : null}
             </table>
+
            
 
             <form action={`/flights/${_id}?_method=PUT`} method="POST">
