@@ -13,6 +13,9 @@ router.get('/', flightsController.index)
 // "new" route GET
 router.get('/new', flightsController.new)
 
+// "update" route PUT
+router.put('/:id', flightsController.update)
+
 // "create" route POST
 router.post('/', flightsController.create)
 
