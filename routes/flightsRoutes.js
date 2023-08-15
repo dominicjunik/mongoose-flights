@@ -4,6 +4,9 @@ const router = express.Router()
 
 const flightsController = require('../controllers/flightsController')
 
+
+// induces
+
 // "index" route GET
 router.get('/', flightsController.index)
 
@@ -12,5 +15,8 @@ router.get('/new', flightsController.new)
 
 // "create" route POST
 router.post('/', flightsController.create)
+
+// "Show" route GET
+router.get('/:id', flightsController.show)
  
 module.exports = router

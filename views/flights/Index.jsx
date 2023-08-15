@@ -10,6 +10,7 @@ export default function Index({flights}){
                     <th>Airline</th>
                     <th>Flight #</th>
                     <th>Departs</th>
+                    <th>Details</th>
                 </tr>
                  {flights.map((flight) => 
                     <tr>
@@ -17,6 +18,8 @@ export default function Index({flights}){
                         <td>{flight.airline}</td>
                         <td>{flight.flightNo}</td>
                         <td>{flight.departs.toString()}</td>
+                        <td><a href={`/flights/${flight._id}`}><button>Info</button></a></td>
+                    
                     </tr> 
                  )}
             </table>
