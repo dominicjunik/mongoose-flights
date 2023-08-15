@@ -32,10 +32,10 @@ export default function Show({flight}) {
             <form action={`/flights/${_id}?_method=PUT`} method="POST">
             <h2>Add Destination:</h2>
             <label htmlFor="departs">Arrival:</label> <br />
-            <input type='datetime-local' id='departs' name='destinations.arrival' defaultValue={flight.departs.toISOString().slice(0, 16)}></input><br /><br />
+            <input type='datetime-local' id='departs' name='arrival' defaultValue={flight.departs.toISOString().slice(0, 16)}></input><br /><br />
 
             <label htmlFor="airports">Choose an Airport Destination:</label>
-            <select name="destinations.airport" id="airports">
+            <select name="airport" id="airports">
                 <option value="AUS">AUS</option>
                 <option value="DAL">DAL</option>
                 <option value="LAX">LAX</option>
