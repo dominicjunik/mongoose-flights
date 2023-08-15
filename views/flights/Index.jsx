@@ -1,10 +1,11 @@
 import React from "react";
+import DefaultLayout from './DefaultLayout';
 
-export default function Index({flights}){
-   
-    return (
-        <div>
-            <h1>Index</h1>
+function Index({flights}) {
+    return ( 
+        <DefaultLayout>
+        <div className="container">
+        <h1>All flights</h1>
             <table>
                 <tr>
                     <th>Airline</th>
@@ -24,10 +25,13 @@ export default function Index({flights}){
                  )}
             </table>
 
-            <form action="/flights/new">
-                <button>New</button>
-            </form>
+
+
+             <a href="/flights/New"><button className="btn-2">New</button></a>
            
         </div>
-    )
+        </DefaultLayout>
+     );
 }
+
+export default Index;

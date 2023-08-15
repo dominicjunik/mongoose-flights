@@ -20,6 +20,8 @@ app.engine('jsx', jsxEngine())
 
 app.use(methodOverride('_method'))
 
+app.use(express.static('public'))
+
 app.use(express.urlencoded({ extended: true }))
 
 // routes
